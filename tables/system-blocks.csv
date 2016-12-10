@@ -1,0 +1,12 @@
+ ,API,Communication,Guarantees,Flexibility,Inaccuracy Handling,Distribution and Scaling,Fault Handling,State Handling,Reprocessing / Replayability,Resource Management,Back Pressure,Processing Pipeline
+Storm,,,,,,,,,,,,
+Heron,,,,,,,,,,,,
+Samza,process,kafka,at-least once,none,window,partitioning,replay,partitioned,replay,na,kafka,lambda-less
+Spark,,,,,,,,,,,,
+Millwheel,,,,,,,,,,,,
+Flink,,,,,,,,,,,,
+S4,,,,,,,,,,,,
+Flume,,,,,,,,,,,,
+Streams,,,,,,,,,,,,
+Borealis,,,,,,,,,,,,
+Aurora,,,,,,,,,,,,

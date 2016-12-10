@@ -42,6 +42,8 @@
 \Crefname{section}{§}{§§}
 \usepackage[shortcuts]{extdash} 
 \usepackage{balance}
+\usepackage{csvsimple}
+
 
 \usepackage[utf8]{inputenc}
 
@@ -82,63 +84,75 @@
 
 % Document starts
 \begin{document}
-
 \input{tex-files/title}
 \input{tex-files/intro}
 
+%%%%%%%%% BUILDING BLOCKS %%%%%%%%%%
+\input{tex-files/blocks/API}
+\input{tex-files/blocks/communication}
+\input{tex-files/blocks/guarantees}
+\input{tex-files/blocks/flexibility}
+\input{tex-files/blocks/inaccuracy}
+\input{tex-files/blocks/distribution}
+\input{tex-files/blocks/fault}
+\input{tex-files/blocks/state}
+\input{tex-files/blocks/reprocessing}
+\input{tex-files/blocks/resource-mng}
+\input{tex-files/blocks/back-pressure}
+\input{tex-files/blocks/pipeline}
+\input{tex-files/blocks/summary}
+
+%%%%%%%%%% SYSTEMS %%%%%%%%%%%%%
+
+\input{tex-files/systems}
+
+%%%%%%%%%%% Future %%%%%%%%%%%%%
+\input{tex-files/future}
 
 
 
-
-
-
-\input{tex-files/state}
-\input{tex-files/fault}
-
-
-\Fix{\large SAMPLES of the rest of the paper}
 
 
 % Numbered Equation
-\begin{equation}
-\label{eqn:01}
-P(t)=\frac{b^{\frac{t+1}{T+1}}-b^{\frac{t}{T+1}}}{b-1},
-\end{equation}
+%\begin{equation}
+%\label{eqn:01}
+%P(t)=\frac{b^{\frac{t+1}{T+1}}-b^{\frac{t}{T+1}}}{b-1},
+%\end{equation}
 
 % Algorithm
-\begin{algorithm}[t]
-\SetAlgoNoLine
-\KwIn{ss}
-\KwOut{ds}
-\Repeat{$FreNum_{\alpha} > -1$}{
-        \For{each node $\beta$ in $\alpha$'s two communication hops
-    }{
-     
-     \eIf{$Found$}{
-           $FreNum_{\alpha}$ = $index$\;
-         }{
-           $index$ ++\;
-     }      
-  }
-}
-\caption{Frequency Number Computation}
-\label{alg:one}
-\end{algorithm}
+%\begin{algorithm}[t]
+%\SetAlgoNoLine
+%\KwIn{ss}
+%\KwOut{ds}
+%\Repeat{$FreNum_{\alpha} > -1$}{
+%        \For{each node $\beta$ in $\alpha$'s two communication hops
+%    }{
+%     
+%     \eIf{$Found$}{
+%           $FreNum_{\alpha}$ = $index$\;
+%         }{
+%           $index$ ++\;
+%     }      
+%  }
+%}
+%\caption{Frequency Number Computation}
+%\label{alg:one}
+%\end{algorithm}
 
 
 \section{Conclusions}
 
 
 % Appendix
-\appendix
-\section*{APPENDIX}
-\setcounter{section}{1}
-\appendixhead{ZHOU}
-
-% Acknowledgments
-\begin{acks}
-	\cite{Editor00}
-\end{acks}
+%\appendix
+%\section*{APPENDIX}
+%\setcounter{section}{1}
+%\appendixhead{ZHOU}
+%
+%% Acknowledgments
+%\begin{acks}
+%	\cite{Editor00}
+%\end{acks}
 
 % Bibliography
 \bibliographystyle{ACM-Reference-Format-Journals}
@@ -149,17 +163,17 @@ P(t)=\frac{b^{\frac{t+1}{T+1}}-b^{\frac{t}{T+1}}}{b-1},
                              % Gerry Murray - March 2012
 
 % History dates
-\received{February 2007}{March 2009}{June 2009}
+%\received{February 2007}{March 2009}{June 2009}
 
 % Electronic Appendix
-\elecappendix
+%\elecappendix
 
 \medskip
 
-\section{This is an example of Appendix section head}
+%\section{This is an example of Appendix section head}
 
 
-\section{Appendix section head}
+%\section{Appendix section head}
 
 \end{document}
 % End of v2-acmsmall-sample.tex (March 2012) - Gerry Murray, ACM

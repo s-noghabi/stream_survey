@@ -1,0 +1,15 @@
+Feature,Options,Pros,Cons
+API,,,
+Communication,,,
+Guarantees,at-most-once,message loss, high throughput - low latency
+,at-least-once,all messages processed, idempotent operation - slight performance degradation
+,exactly-once,strong guarantees,performance degradation
+Flexibility,,,
+Inaccuracy Handling,,,
+Distribution and Scaling,,,
+Fault Handling,,,
+State Handling,,,
+Reprocessing / Replayability,,,
+Resource Management,,,
+Back Pressure,,,
+Processing Pipeline,,,

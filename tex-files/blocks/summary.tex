@@ -1,0 +1,30 @@
+\section{Summary of Building Blocks}
+building-blocks-summary
+
+
+\begin{table}[h]
+	%\centering
+	\tbl{Building Blocks used in most popular Stream Processing Engines.	\label{table:blocks-summary}}{
+		%		\begin{tabular}{|p{.1 \linewidth}|p|p|p|p|p|p|p|p|p|p|p|p|}%
+		\tiny
+		%	\begin{tabular}{|p{.09 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|
+		%	p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|}%
+		
+		\begin{tabular}{|p{.1 \linewidth}|p{.15 \linewidth}|p{.35 \linewidth}|p{.35 \linewidth}|}%
+			
+			\hline
+			\rowcolor[HTML]{E0E0E0} 
+			Feature	&Options	&Pros&Cons 
+			%	bb & Storm & Heron & Trident & Samza & Spark & Millwheel & Flink & S4 & Flume & Streams & Borealis & Aurora 
+			%	 \textbf{} & \textbf{} & \textbf{} % specify table head
+			\csvreader[head to column names]{tables/building-blocks-summary.csv}{}% use head of csv as column names
+			{\\\hline\csvcoli & \csvcolii & \csvcoliii &\csvcoliv }% specify your coloumns here
+			\\ \hline
+		\end{tabular}	
+	}
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}

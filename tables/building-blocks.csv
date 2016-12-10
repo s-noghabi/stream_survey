@@ -1,0 +1,13 @@
+Feature,Options
+API,
+Communication,
+Guarantees,
+Flexibility,
+Inaccuracy Handling,
+Distribution and Scaling,
+Fault Handling,
+State Handling,
+Reprocessing / Replayability,
+Resource Management,
+Back Pressure,
+Processing Pipeline,

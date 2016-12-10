@@ -1,0 +1,35 @@
+\section{Current Popular Stream Processing Systems}
+
+\subsection{Storm}
+\subsection{Heron}
+\subsection{Samza}
+\subsection{Spark Streaming}
+\subsection{MillWheel}
+\subsection{Flink}
+
+\subsection{Building Blocks used in Modern systems}
+\begin{table}[h]
+	%\centering
+	\tbl{Building Blocks used in most popular Stream Processing Engines.	\label{system-blocks}}{
+%		\begin{tabular}{|p{.1 \linewidth}|p|p|p|p|p|p|p|p|p|p|p|p|}%
+			\tiny
+		%	\begin{tabular}{|p{.09 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|
+			%	p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|}%
+		
+			\begin{tabular}{|p{.05 \linewidth}|p{.04 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|
+				p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.085 \linewidth}|p{.078 \linewidth}|p{.052 \linewidth}|p{.05 \linewidth}|}%
+			
+			\hline
+			\rowcolor[HTML]{E0E0E0} 
+				 &API &	Communication	& Guarantees &	Flexibility	&Inaccuracy Handling &	Distribution \& Scaling&	Fault Handling&	State Handling&	Reprocessing / Replayability	&Resource Management	& Back Pressure&	Processing Pipeline 
+	%	bb & Storm & Heron & Trident & Samza & Spark & Millwheel & Flink & S4 & Flume & Streams & Borealis & Aurora 
+		%	 \textbf{} & \textbf{} & \textbf{} % specify table head
+			\csvreader[head to column names]{tables/system-blocks.csv}{}% use head of csv as column names
+			{\\\hline\csvcoli & \csvcolii & \csvcoliii &\csvcoliv & \csvcolv & \csvcolvi &
+			\csvcolvii & \csvcolviii & \csvcolix & \csvcolx   & \csvcolxi & \csvcolxii & \csvcolxiii}% specify your coloumns here
+		\\ \hline
+		\end{tabular}	
+	}
+\end{table}
+
+
