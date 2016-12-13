@@ -17,10 +17,18 @@
 	\end{figure}
 	
 	
-	\noindent \textbf{Usecase:} 
-\\	\noindent \textbf{Techniques: }
-\\	\noindent \textbf{Trade-off in techniques: } 
-\\	\noindent \textbf{Future Direction:} 
+	\noindent \textbf{Use-case:} at-most-once is good for approximate computing. Examples are: \Fix{...}. at-least-once is good for idempotent computations. in most cases ordering is preserved, and a series of messages are replayed. \Fix{is that ture?}. Examples are: \Fix{...}.  exactly-once is good for cases that precise computation is needed. Examples are: \Fix{...}\\
+	
+
+\noindent \textbf{Techniques:} at-most once, essentially means not adding any feature to the system. at-least once mechanism are: 1. using an (XOR based) acking. 2. using ordered messaging, with latest offset processed and replay when ever missing. 3. ?
+
+exactly-once mechanism: 1. keeping track of all message ids processed, and check before reprocessing. 2. using total ordering, and detecting missing messages and re-requesting them 
+\Fix{TODO: complete the selections}
+\\
+
+\noindent \textbf{Trade-off in techniques: }  \Fix{should this be merged with the previous section? it is restating the techniques}\\
+
+\noindent \textbf{Future Direction:} current exactly once mechanism introduce too much overhead, especially in a system with high throughput. It is desirable to build a lower overhead mechanism. 
 
 
 Modes are:
@@ -30,6 +38,8 @@ Modes are:
 
 \Fix{What is the usecase of each mode? }
 \Fix{is this section about these guarantees? or about techniques to provide each?}
+
+\Fix{ should we talk about ordering somewhere? which BB does it belong to?}
 
 
 
