@@ -21,18 +21,19 @@
 \begin{table}[h]
 	%\centering
 	\tbl{Essential building blocks in Stream Processing Engines.	\label{table:blocks}}{
-		\begin{tabular}{c|l|l}%
+		\begin{tabular}{c|l|l|c}%
 			\hline
 			\rowcolor[HTML]{E0E0E0} 
-			\bfseries Section & \bfseries Building Block & \bfseries Definition  % specify table head
+			\bfseries Section & \bfseries Building Block & \bfseries Definition & By % specify table head
 			\csvreader[head to column names]{tables/building-blocks.csv}{}% use head of csv as column names
-			{\\\hline\csvcoli&\csvcolii & \csvcoliii}% specify your coloumns here
+			{\\\hline\csvcoli&\csvcolii & \csvcoliii & \csvcoliv}% specify your coloumns here
 			\\ \hline
 		\end{tabular}
 	}
 \end{table}
 
 \Fix{Do we want to argue we are covering all essential building blocks??? or just say the most important ones?}
+\Fix{ should we talk about ordering somewhere? which BB does it belong to?}
 
 
 

@@ -1,14 +1,14 @@
-Section,Feature,Definition
-3,Communication,Communication component used between operators
-4,Guarantees,Message processing guarantees (at-most-once at-least-once  exactly-once) 
-5,Inaccuracy Handling,Handling out-of-order and late arrivals
-6,Distribution and Scaling,partitioning jobs into parallel tasks and dsitributing them
-7,Fault Handling,Detecting tolerating and Recovering failures
-8,State Handling,Handling stateful processing with no loss of state
-9,Reprocessing / Replayability,Providing ability to replay parts  (or the whole) stream.
-10,Flexibility,Handling topology changes (e.g. adding operators) by application developer
-11,Job Optimization,Optimizing topologies without impacting the result (e.g. operator reordering or deduplication). 
-12,Load Balancing,Balancing load among resources
-13,Elasticy,Scaling resources out or in -- for permanent (or long term) load changes
-14,Back Pressure,Handling short temporary spikes in the system
-15,Straggler Handling,Mitigating the impact of slow or overloaded nodes
+Section,Feature,Definition,handled by
+3,Communication,Communication component used between operators,Sh
+4,Guarantees,Message processing guarantees (at-most-once at-least-once  exactly-once) ,Sh
+5,Inaccuracy Handling,Handling out-of-order and late arrivals,Sh
+6,Distribution and Scaling,partitioning jobs into parallel tasks and dsitributing them,Sh
+7,Fault Handling,Detecting tolerating and Recovering failures,Sh
+8,State Handling,Handling stateful processing with no loss of state,Sh
+9,Reprocessing / Replayability,Providing ability to replay parts  (or the whole) stream.,Sh
+10,Flexibility,Handling topology changes (e.g. adding operators) by application developer,Le
+11,Job Optimization,Optimizing topologies without impacting the result (e.g. operator reordering or deduplication). ,Le
+12,Load Balancing,Balancing load among resources,Le
+13,Elasticy,Scaling resources out or in -- for permanent (or long term) load changes,Le
+14,Back Pressure,Handling short temporary spikes in the system,Le
+15,Straggler Handling,Mitigating the impact of slow or overloaded nodes,Le
