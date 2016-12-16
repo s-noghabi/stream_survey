@@ -11,14 +11,32 @@
 \end{itemize}
 
 Things needed: 
-\begin{itemize}
-	\item \textbf{Definition: } 
-	\item \textbf{Purpose: } 
-	\item \textbf{Usecase:}
-	\item \textbf{Techniques: }
-	\item \textbf{Trade-off in techniques: } 
-	\item \textbf{Future Direction:} 
-\end{itemize}
+\noindent\textbf{Definition:} 
+
+\noindent \textbf{\\Purpose:} 
+
+
+\noindent \textbf{\\Properties:}
+
+\noindent \textbf{\\Solutions, trade-offs and usecases:}
+
+\begin{table}[h]
+	\tbl{Solutions to \Fix{XXX} and their trade-offs	\label{table:XXX-summary}}{
+		\tiny		
+		\begin{tabular}{p{.15 \linewidth}|p{.3 \linewidth}|p{.3 \linewidth}|p{.1 \linewidth}}%
+			
+			\hline
+			\rowcolor[HTML]{E0E0E0} 
+			Solution	&Pros&Cons & Usecase
+			\csvreader[head to column names]{tables/template-summary.csv}{}% use head of csv as column names
+			{\\\hline\textbf{\csvcoli} & \csvcolii & \csvcoliii & \csvcoliv}% specify your coloumns here
+			\\ \hline
+		\end{tabular}	
+	}
+\end{table}
+
+
+\noindent \textbf{\\Future Direction:}  
 
 
 \Fix{Fault-tolerance of state is a separate discussion}

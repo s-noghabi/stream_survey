@@ -1,4 +1,4 @@
-Solution,Pro,Con
-sol 1,XXX,YYY
-sol 2,,
-sol 3,,
+Solution,Pro,Con,Usecase
+sol 1,XXX,YYY,samza
+sol 2,,,
+sol 3,,,

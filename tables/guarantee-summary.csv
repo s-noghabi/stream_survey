@@ -1,6 +1,0 @@
-Feature,Solution,Pro,Con
-at-most-once,no  change,no performance overhead,no guarantees + messagae loss
-at-least-once,acking,low per message overhealow per message overhead,limited scalability + no ordering guarantees
-,partial ordering + replayability,ordered execution + scalable,stop execution until missing is reached or adding extra hub
-exactly-once,maintaining message ids,,large state overhead
-,total ordering,,limited scalability with need for sequencer
