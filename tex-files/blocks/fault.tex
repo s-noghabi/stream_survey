@@ -2,21 +2,31 @@
 \label{sec:fault}
 
 
+\Fix{Should message failure fall into this section? they seem closely coupled.}
 \noindent\textbf{Definition:} 
-	We have three modes of recovery:
-\begin{itemize}
-	
-	\item  Precise recovery 
-	\item  Rollback recovery
-	\item Gap recovery
-	\Fix{draw a similar diagram to guarantees for this?}
-\end{itemize}
+We need mechanism to detect failures, tolerate failures without impacting the availability of the system, and recover from failures with processing going back to normal.
+
+\Fix{should we discuss failure detection?}
 
 \noindent \textbf{\\Purpose:} 
 
 Failures are the norm. there is a need for a component to detect and recover from failures. since stream jobs are every running jobs, this is an essential component. different modes, provide different guarantees.
 
-\noindent \textbf{\\Use-case:}
+\subsection{Failure Detection}
+\Fix{maybe talk about heartbeat, pingpong, or piggy back mechanisms?}
+\subsection{Failure Tolerance}
+\Fix{talk about mechanism used for availability. Maybe the independent design structure that one some of the paths are unavailable not the whole dataflow.}
+\subsection{Failure Recovery}
+
+\noindent \textbf{\\Properties:}
+
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{guarantees.jpg}
+	\caption{Spectrum of various failure properties and the trade-off among them.}
+	\label{fig:failure}
+\end{figure}
 
 	\begin{itemize}
 	\item precise recovery:  \borrowed{hides the effects of a failure perfectly, except
@@ -94,12 +104,8 @@ Failures are the norm. there is a need for a component to detect and recover fro
 
 \noindent \textbf{\\Future Direction:}  
 
-\Fix{TODO}
 
 
 
 
 
-\Fix{Should  detection,  tolerance and recovery be separated?}
-
-\Fix{How about high availability?}

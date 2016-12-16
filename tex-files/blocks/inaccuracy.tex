@@ -1,1 +1,20 @@
 \section{Accuracy: Handling late and out-of-order messages}
+
+\noindent\textbf{Definition \& Purpose:} 
+out of order and late messages are the norm.  even when using a ordered communication mechanism, there time could be event time instead of message time stamp. We need mechanism to fix inaccuracies This is one of the main motivations of having a lambda architecture with batch in parallel.
+
+\noindent \textbf{\\Properties:}
+Any other approaches than dataflow?
+How does Borealis do this? 
+
+
+No mechanism
+Relying on parallel batch pipeline (Lambda)
+Rewind and replay
+Delaying for seeing more data ?
+
+
+Talk about event time and so on?
+
+\noindent \textbf{\\Solutions, trade-offs and usecases:}
+\noindent \textbf{\\Future Direction:}  

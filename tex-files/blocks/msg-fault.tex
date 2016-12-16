@@ -1,8 +1,8 @@
 \section{Message Failure Handling}
 
-	\noindent\textbf{Definition:} 
+	\noindent\textbf{Definition:} Message loss is a common, either because of network failures, or upstream/downstream node failures.
 
-	\noindent \textbf{Purpose:} This BB adds guarantees to the processing. Also, provides a mean to trade-off between performance and precise computing. As shown in \ref{fig:guarantees}, "at-most-once provides higher performance with lower latency and higher throughput, with more overhead being added as moving to "exactly-once". However, this comes at a cost of less precise processing with the possibility of loosing messages or processing the same message multiple times.
+	\noindent \textbf{Purpose:} This BB adds guarantees to the processing. Also, provides a mean to trade-off between performance and precise computing.
 	
 	\noindent \textbf{Properties}
 	we have three modes of guarantees 
@@ -11,6 +11,7 @@
 		\item at least once: guaranteeing processing each message at least once, with a chance of reprocessing some of the messages
 		\item exactly once (strongest): guaranteeing each message being processed exactly one (no loss or reprocessing)
 	\end{itemize}	 
+
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.45\linewidth]{guarantees.jpg}
@@ -18,6 +19,8 @@
 		\label{fig:guarantees}
 	\end{figure}
 	
+	 As shown in \ref{fig:guarantees}, "at-most-once provides higher performance with lower latency and higher throughput, with more overhead being added as moving to "exactly-once". However, this comes at a cost of less precise processing with the possibility of loosing messages or processing the same message multiple times.
+	 
 	at-most-once is good for approximate computing. Examples are: \Fix{...}. at-least-once is good for idempotent computations. in most cases ordering is preserved, and a series of messages are replayed. \Fix{is that true?}. Examples are: \Fix{...}.  exactly-once is good for cases that precise computation is needed. Examples are: \Fix{...}\\
 	
 
@@ -27,20 +30,15 @@ exactly-once mechanism: 1. keeping track of all message ids processed, and check
 \Fix{TODO: complete the selections} \\
 
 \begin{table}[h]
-	%\centering
 	\tbl{Solutions to providing streaming gurantees and their trade-offs	\label{table:msg-fault-summary}}{
-		%		\begin{tabular}{|p{.1 \linewidth}|p|p|p|p|p|p|p|p|p|p|p|p|}%
 		\tiny
-		%	\begin{tabular}{|p{.09 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|
-		%	p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|p{.05 \linewidth}|}%
-		
 		\begin{tabular}{|p{.1 \linewidth}|p{.12 \linewidth}|p{.3 \linewidth}|p{.3 \linewidth}|p{.08 \linewidth}|}%
 			
 			\hline
 			\rowcolor[HTML]{E0E0E0} 
 			Feature	&Solution	&Pros&Cons & Usecase
-			\csvreader[head to column names]{tables/msg-fault-summary.csv}{}% use head of csv as column names
-			{\\\hline\textbf{\csvcoli} & \csvcolii & \csvcoliii &\csvcoliv & \csvcolv }% specify your coloumns here
+			\csvreader[head to column names]{tables/msg-fault-summary.csv}{}
+			{\\\hline\textbf{\csvcoli} & \csvcolii & \csvcoliii &\csvcoliv & \csvcolv }
 			\\ \hline
 		\end{tabular}	
 	}

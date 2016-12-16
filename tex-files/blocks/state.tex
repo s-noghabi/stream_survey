@@ -1,22 +1,30 @@
 \section{Handling State}
 \label{sec:state}
 
-\begin{itemize}
-	\item  Stateless
-	\item  Remote Storage
-	\item  Local Store
-	\item  case: In-mem
-	\item case: On-disk
+
+
 	
-\end{itemize}
+
 
 Things needed: 
-\noindent\textbf{Definition:} 
+\noindent\textbf{Definition:}  many applciation handle state along with processing....
 
 \noindent \textbf{\\Purpose:} 
 
 
 \noindent \textbf{\\Properties:}
+
+\begin{itemize}
+\item  Stateless
+\item  Remote Storage
+\item  Local Store
+\item  case: In-mem
+\item case: On-disk
+\end{itemize}
+
+and a fault -tolerance mechanism used in case of local store. Changelog, checkpoint, replication...
+
+
 
 \noindent \textbf{\\Solutions, trade-offs and usecases:}
 
@@ -38,5 +46,6 @@ Things needed:
 
 \noindent \textbf{\\Future Direction:}  
 
+specialized storage systems for streaming.
 
 \Fix{Fault-tolerance of state is a separate discussion}
