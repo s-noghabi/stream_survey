@@ -4,10 +4,24 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{stream.pdf}
+	\includegraphics[width=0.6\linewidth]{stream.pdf}
 	\caption{Conceptual overview of stream processing.}
 	\label{fig:stream}
 \end{figure}
+
+This section clarifies the terminology used in this article. Both the research and industry community have independently developed various stream processing frameworks, each with their own terminology and model. While there are differences, both at the language level and at the
+system level, we use a generalized and abstract terminology derived based on \cite{optimization-survey}.
+
+A stream \textit{application} is represented as a directed graph called a \textit{dataflow}. In this graph, each vertex is an operator and each edge is a stream of data, as shown in Figure \ref{fig:stream}.
+A \textit{stream} is an infinite sequence of data \textit{items}. Streams behave similar to queues -- items are processed from the front and new items are added to end.
+
+An \textit{operator} is a continuous stream transformation. An operator handles an arbitrary non-negative number ($\geq 0$) of input streams and output streams. Each operator, consumes items from it incoming stream(s) one at a time; performs computation and transformation on the item; and optionally generates one or more new items into an output stream(s). Thus, streams connect operators and make the data flow through the dataflow while operators perform the transformations on the data. 
+Each operator has a number of \textit{instances}, e.g. $\{A_1, ..., A_k\}$ of operator A in Figure \ref{fig:stream}. In parallel, each instance, e.g. $A_i$, performs the exact same computation but on a separate portion of the input stream(s).
+
+ 
+
+\Fix{Do we need an example here?}
+\Fix{should we talk about 1.when data is generated/outputted?2. buffers 3.state, 4. distribution}
 
 
 \begin{itemize}
