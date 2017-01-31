@@ -2,23 +2,16 @@
 \label{sec:parallelization}
 
 
-\noindent\textbf{Definition:} To handle large scale date, it has to be parallelized and distributed among many machines and threads. 
+\noindent\textbf{Definition:} To handle large scale, processing has to be done in parallel and distributed among many machines. Thus, 
 
-There is graph, and many instances of each operator. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.45\linewidth]{grouping.png}
-	\caption{ Groupings and parallelization.}
+	\includegraphics[width=0.45\linewidth]{partition}
+	\caption{Parallelization of operators, and partitioning of streams.}
 	\label{fig:grouping}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{jvm-task.png}
-	\caption{ Distribution of operator instances}
-	\label{fig:distribution}
-\end{figure}
 
 
 \begin{itemize}

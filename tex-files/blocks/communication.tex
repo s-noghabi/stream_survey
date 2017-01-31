@@ -2,22 +2,30 @@
 \label{sec:communication}
 
 
-\noindent\textbf{Definition:} 
-operators are distributed on multiple machines, to enable large-scale processing. Therefore there is a need for a communication mechanism, between these operators. 
+\noindent\textbf{Definition and Purpose:} To enable large scale processing, operators are distributed across multiple machines. This distribution necessitates a \textit{communication mechanism} connecting operators to each other, and enabling data items to flow between operators. This section covers the desired properties from the communication mechanism and the current technologies used.
 
-\noindent \textbf{\\Purpose:} 
 
 
 \noindent \textbf{\\Properties:}
+%Various communicatStream processing frameworks utlize diverse comminucation mechanism based on properties they require from the communication
+%
+Among the various communication mechanism \Fix{cite}, the main differentiator is the properties and guarantees they provide. 
+Based on these properties, stream processing frameworks employ the mechanism that best fits their requirements. The main properties of a communication mechanism are:
 
 \begin{itemize}
-	\item \textbf{flow direction:} which direction does data flow. push, pull, or a combination of both, like a pub-sub system
-	\item \textbf{buffering: } are there any buffering capabilities. How large is the buffer?
-	\item \textbf{re-playability}: can the message be replayed?
-	\item \textbf{reliability: }can it handle failures. does is lose data? does it effect its availability?
-	\item \textbf{ordering:} is there any guarantess on ordering? total ordering? FIFO?
+	
+	
+	\item \textbf{Push/Pull} Which direction initiates communication? The sender can push the items downstream, the receiver can pull from upstream, or a mixed push-pull approach can be used, such as a publish-subscribe mechanism. \Fix{cite}
+	
+	
+	\item \textbf{Fault-tolerance:} Can the mechanism handle failures? In presence of a failure, is availability impacted or can data get lost? \Fix{is this a valid point? should it be here?}
+	\item \textbf{Replayability}: Can the message be replayed? If so, for how far in the past and how large is the buffer?
+	%\item \textbf{buffering: } are there any buffering capabilities. How large is the buffer?
+	
+	\item \textbf{Ordering:} Are there any ordering guarantees, such as total ordering,  first in first out (FIFO) or 
+	
 	\item \textbf{ direct or proxy}: is the communication direct from one machine to another or through a second entity?
-\item \textbf{ batch or online: } is the communication done in batches or sent as soon as available?
+	\item \textbf{ batch or online: } is the communication done in batches or sent as soon as available?
 \end{itemize}
 
 \noindent \textbf{\\Solutions, trade-offs and usecases:}
@@ -26,7 +34,7 @@ operators are distributed on multiple machines, to enable large-scale processing
 	\item RPC methods
 	\item publish-subscribe through 3rd entity (kafka)
 	\item direct pub-sub. -- zeroMQ
-	\Fix{TODO: and study this in more detail}
+	\Fix{TODO: study this in more detail}
 	
 \end{itemize}
 
