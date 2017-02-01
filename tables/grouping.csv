@@ -1,0 +1,6 @@
+Solution,Definition,Trade-off,Usecase
+Random,Randomly send to one partition,Load balance (+); Commonly used (+); Locality unawareness (-),All systems
+Hash-based,Hash item to the partition,Same keys go to one partition (+); Commonly used (+); Load imbalance (-),All systems
+All,Send to all partitions,Broadcast (+); High overhead (-),All systems
+One,All items sent to one partition,Data Aggregation (+); Load imbalance(-),\Fix{?}
+Locality aware,Send to instance on same process.  Send random if does not exist.,Low network and latency (+); Load imbalance (-),\Fix{?}
