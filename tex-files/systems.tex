@@ -1,15 +1,50 @@
 \section{Current Popular Stream Processing Systems}
 
-\Fix{which ones should we chose?}
+\Fix{which ones should we choose?}
 	
 	
-\subsection{Storm}
+\subsection{Storm} % graph can be cyclic!
+\paragraph{Trident} 
 \subsection{Heron}
+
+Due to architectural inadequacies, Storm can suffer from some performance bottlenecks. Twitter proposed Heron, a system that simplifies Storm architecture to address these bottlenecks and implements ideas such as backpressure to improve performance at runtime. Below, we describe Heron's processing model and architecture. 
+
+\paragraph{Model} Like Storm, Heron too has a continuous operator model. Once operators are spun up for a topology (or job), the continue to process tuples as soon as they receive them. A topology can be logically abstracted as a directed graph of operators, where some of the operators act as spouts (sources of input data) and bolts (operators that perform computation on the data stream). Each operator is physically run as a task in a topology and the programmer can change the parallelism level of each operator by increasing or decreasing the number of tasks per operator. The programmer can also choose how the data is partitioned amongst downstream operators e.g., through shuffle group, range partitioning etc. Heron provides the same processing semantics as Storm: 1) at-least once processing: a tuple may be processed multiple times but each tuple is guaranteed to be processed at least once in the topology, and 2) at-most once processing:  tuples may be dropped but no tuples are processed more than once in the topology.
+
+
+\paragraph{Architecture}
+
+
+Unlike Storm, a pluggable scheduler can be used to deploy Heron topologies. Each topology is run on top of containers and several containers can co-exist on a node. Using containers allows programmers to allocate different resources for each type of container.  The types of containers are below: 
+\begin{enumerate}
+	\item Topology Master (TM): The TM is responsible for managing the topology throughout its lifetime.  It has built-in mechanisms that allow it to be discoverable from other containers. The topology's metadata is kept in Zookeeper in case the Master fails and another needs to be launched.
+	
+	\item Stream Manager (SM): The SM manages tuple routing for the topology.  All HIs connect to their SM to send and receive tuples. All SMs connect with each other to form a network that acts as an overlay which multiplexes the logical connections between the HIs over the physical connections.  
+		
+	\item Heron Instances (HIs): These contain a single task that runs a the user code of  spout or bolt and performs the actual processing required. Each HI is implemented using a two-threaded approach, where each HI has two threads: a Gateway thread and a Task Execution thread. The Gateway thread controls sending and receipt of tuples from the local SM, and also maintains connections to the metrics manager. The Task Execution thread simply runs the user code. 
+
+	\item Metrics Manager (MM): The MM collects and exports metrics from all the components in the system, which can be displayed on an external UI. 
+ 
+\end{enumerate}
+
+
+%physical node. These containers are allocated and scheduled by Aurora based on the resource availability across the nodes in the cluster. (At Twitter, Aurora maps these containers to Linux cgroups.) A standby Topology Master can be run for availability. The metadata for the topology (which includes information about the user who launched the job, the time of launch, and the execution details) are kept in Zookeeper. 
+
+
+
+\paragraph{Backpressure} Heron implements a simple form of backpressure i.e., Spout Backpressure. To reduce data that is injected into a topology, the topology simply has to stop reading data from the spouts. This is implemented through the SMs, which can identify which HIs are there local spouts and then can simply stop reading data from them. This slows the spout down as the spout's send buffer  fills up, causing the spout to block. Once the slow tasks begin to catch up, the SMs start reading data from their spouts again. This approach is advantageous as the topology can quickly turn on backpressure, irrespective of the size of the topology. However, it can also unnecessarily stop reading data from spouts, which may be be responsible for causing the bottleneck in the first place.
+
+\paragraph{Implementation} \fkc{Do we need to talk about the implementation?}
+
+\paragraph{Self-Healing Stream Processing Systems} Dhalion is a scheduler built on top of Heron, that provides self-regulating capabilities to it. These self-regulating capabilities include reacting to SLO violations and unpredictable load variations. Most importantly, the system considers diagnosing the causes of backpressure and taking steps to mitigate the cause so that even backpressure is removed, its original cause will not occur again. 
+
+
 \subsection{Samza}
 \subsection{Spark Streaming}
 \subsection{MillWheel}
 \subsection{Flink}
-
+\fkc{How about a section on Dataflow from Google instead of MillWheel?}
+\fkc{How about MacroBase?}
 \subsection{Building Blocks used in Modern systems}
 \begin{table}[h]
 	%\centering

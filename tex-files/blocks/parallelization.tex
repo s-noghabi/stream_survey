@@ -2,10 +2,10 @@
 \label{sec:parallelization}
 
 \subsection{Parallelization}
- To handle large scale, processing has to be done in parallel and distributed among many machines. Thus, Stream processing systems break applications and streams into smaller units. An application is composed of many independent operators, and each operator has several parallel instances (Figure \ref{fig:stream}). Similarly, a stream is composed of several \textit{partitions}. Figure \ref{fig:parallelization}-a shows an example dataflow with partitions $\{P_{AB}\_1, P_{AB}\_2, P_{AB}\_3\}$. \Fix{how about when they all have similar duplicate input?}
-Each instance autonomously operators on a separate partition of the input stream (e.g., $B_1$ on $P_{AB}\_1$), and produces output to partitions of an output stream (e.g., $A_1$ outputting to all partitions ). 
+ To handle large scale, processing has to be done in parallel and distributed among many machines. Thus, stream processing systems break applications and streams into smaller units. An application is composed of many independent operators, and each operator has several parallel instances (Figure \ref{fig:stream}). Similarly, a stream is composed of several \textit{partitions}. Figure \ref{fig:parallelization}-a shows an example dataflow with partitions $\{P_{AB}\_1, P_{AB}\_2, P_{AB}\_3\}$. \Fix{how about when they all have similar duplicate input?}
+Each instance autonomously operates on a separate partition of the input stream (e.g., $B_1$ on $P_{AB}\_1$), and produces output to partitions of an output stream (e.g., $A_1$ outputting to all partitions ). 
 
-\subsection{Distribution}
+\subsection{Distribution} \fkc{How much discussion should be here? For instance, Storm and Heron differ significantly in this}
 Stream applications are distributed across a cluster of processing \textit{nodes}, as shown in Figure \ref{fig:parallelization}-b. Typically, each instance is treated as a single thread \footnote{Some systems use a different variation of instance to thread mapping. For example, Storm enables mapping multiple instances to a thread, and Samza used to provide a single thread (per process) model \Fix{cite}.}. 
 Instances are placed together into a \textit{process} or container (which is essentially a process), and then processes are distributed across nodes. Note that in a given node, process of a given application or two different applications may run concurrently. 
 Section \Fix{X and Y} discuss the different placement and distribution strategies used for both instances and processes. 
@@ -42,8 +42,8 @@ For a given instance $o_s$ of $O_{src}$ generating item $i$ to $O_{dst}$, throug
 
 
 	
-
-	Local or shuffle grouping: If the target bolt has one or more tasks in the same worker process, tuples will be shuffled to just those in-process tasks. Otherwise, this acts like a normal shuffle grouping.
+	\item \textbf{Local or shuffle grouping:}
+	 If the target bolt has one or more tasks in the same worker process, tuples will be shuffled to just those in-process tasks. Otherwise, this acts like a normal shuffle grouping.
 \end{itemize}
 
 Stream processing frameworks mostly support all these groupings. Table \ref{table:grouping} summarizes the groupings, their trade-offs, and the systems providing them.
